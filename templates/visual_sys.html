@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Visual System</title>
+        <style>
+        td {
+             border: 2px solid green;
+             width: 10%;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+
+    <body>
+        <div style="width:70%;margin:auto;">
+            <!-- Instructions -->
+            <br>
+            <p>
+                Please browse a stream of podcasts recommended for you and click on the ONE that <b>you like most</b>.
+                By making a selection, you will be committing to listening for a <b>full 5 minutes</b>.
+                The stream of podcasts is long, you can scroll down to the bottom to load more recomendations.
+            </p>
+
+            <!-- Podcast Grid -->
+            <div>
+                <table  align="center">
+                {% for i in range(0, podcast_options['podcasts']|length) %}
+                    {% if i % ncols == 0 %}
+                        <tr>
+                    {% endif %}
+                        <td> <div id="podcast-{{ i }}" onclick="sendAndRedirect(this)"> {{ podcast_options['podcasts'][i]["title"] }} </div> </td>
+                    {% if i % ncols == (ncols - 1) %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                {% if podcast_options['podcasts']|length % ncols != 0 %}
+                    </tr>
+                {% endif %}
+                </table>
+            </div>
+
+            <script>
+
+                // helper functions for data collection
+                function init_log() {
+                  log["view"] = [];
+                  log["view"].push({
+                    "layout" : get_layout_info(),
+                    "time" : new Date().getTime(),
+                    "window" : get_window_info()
+                  });
+                }
+
+                function get_layout_info() {
+                    var layout_info = {}
+                    layout_info["top"] = $("#podcast-0").offset().top;
+                    layout_info["height"] = $("#podcast-{{ncols}}").offset().top - $("#podcast-0").offset().top;
+                    return layout_info;
+                }
+
+                function get_window_info() {
+                    var window_info = {}
+                    window_info["top"] = $(window).scrollTop();
+                    window_info["bot"] = $(window).height() + $(window).scrollTop();
+                    return window_info;
+                }
+
+                // handlers
+                var log = {};
+                init_log();
+
+                $( window ).scroll(function() {
+                    log["view"].push({
+                      "layout" : get_layout_info(),
+                      "time" : new Date().getTime(),
+                      "window" : get_window_info()
+                    });
+                });
+
+                function sendAndRedirect(e) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/_data-collector", true);
+                    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+
+                    xhr.onreadystatechange = function() {
+                      if (xhr.readyState === 4) {
+                        var id = e.id.match(/^podcast-(\d+)/)[1]
+                        location.href = 'player/' + id;
+                      }
+                    }
+                    xhr.send(JSON.stringify(log));
+                }
+            </script>
+        </div>
+    </body>
+</html>

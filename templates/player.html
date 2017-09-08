@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Playing Podcast </title>
+    </head>
+    <body>
+        <div style = "margin-top: 200px;" align = "center">
+        <audio id = "audioplayer" controls>
+        <source src= {{ url_for('static', filename = audio_file ) }} type="audio/mp3">
+        Your browser does not support audio files
+        </audio>
+
+        <script>
+            var player = document.getElementById("audioplayer");
+            var paused = false;
+            // automatic pause after pause_offset seconds
+            player.addEventListener("timeupdate", function(){
+                if (player.currentTime < {{ pause_offset }}) {
+                    paused = false;
+                } else if (player.currentTime < ({{ pause_offset }} + 1) && !paused) {
+                    paused = true;
+                    player.pause();
+                }
+            });
+            player.addEventListener("ended", function() {
+                window.location = "/survey"
+            })
+        </script>
+    </body>
+</html>

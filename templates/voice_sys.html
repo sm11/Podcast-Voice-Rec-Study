@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Voice System </title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div style="width:70%;margin:auto;">
+            <br>
+
+            <!-- Instruction -->
+            <p> Please listen to a stream of podcasts recommended for you and type in the <b>Index number</b> of the ONE that <b> you like most</b> and then <b> submit </b>.
+            By submitting, you will be committing to listening for a <b> full 5 minutes </b>.
+            The stream of podcasts is long, the audio will continuously read titles of new podcast.
+            </p>
+            <br>
+
+            <!-- Status and Control -->
+            <div style="border:1px solid black; width: 50%; margin: auto; padding: 5px;" align="center">
+                <p id = "status-text">
+                    Press button to start playing
+                </p>
+            </div>
+            <br>
+
+            <div align = "center">
+                <button type="button" onclick="playaudio()" style="margin-right:20px;">Play</button>
+                <button type="button" onclick="pauseaudio()" style="margin-left:20px;">Pause</button>
+            </div>
+
+            <audio id="player">
+                <source src= {{ url_for('static', filename=audio_file) }} type="audio/mp3">
+                Your browser does not support audio files
+            </audio>
+
+
+            <script>
+                // Play, Pause and End Logic
+                var player = document.getElementById("player");
+
+                function playaudio() {
+                    player.play();
+                    document.getElementById("status-text").innerHTML = "Now Playing ...";
+                }
+                function pauseaudio() {
+                    player.pause();
+                    document.getElementById("status-text").innerHTML = "Paused ...";
+                }
+
+                player.addEventListener("ended", function(){
+                    document.getElementById("status-text").innerHTML = "Ended...";
+                });
+
+                //Selection Logic
+                function submit() {
+                  if(validateInput()) {
+                    window.location.href = '/player/' + document.getElementById("podcast-id").value;
+                  }
+                }
+
+                function validateInput() {
+                    var id = document.getElementById("podcast-id").value;
+                    if(id == "" || isNaN(id)) {
+                      alert("Must select a podcast to continue. Input id number in text box");
+                      return false;
+                    } else {
+                        return true;
+                    }
+                }
+            </script>
+
+            <br>
+            <br>
+
+            <!-- Selection Section -->
+            Index number of your selected Podcast<br>
+            <br>
+            <div align = "center">
+                <input type="text" id="podcast-id">
+                <button type="button" onclick="submit()">Submit</button>
+            </div>
+        </div>
+    </body>
+</html>

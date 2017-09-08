@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Survey </title>
+    </head>
+    <body>
+        <h1 align="middle">Survey</h1>
+        <br>
+        <div style="width: 70%; margin:auto;">
+        <form action="/thankyou" method="Post" align="left">
+            1. Please indicate how much you liked <b> your podcast choice </b>.<br>
+            <table style="width:100%">
+              <br>
+              <tr>
+                  <td><input type="radio" name="choice-like-level" value="strongly-disliked" required> Strongly disliked</td>
+                  <td><input type="radio" name="choice-like-level" value="disliked" required> Disliked </td>
+                  <td><input type="radio" name="choice-like-level" value="neutral" required> Neutral</td>
+                  <td><input type="radio" name="choice-like-level" value="liked" required> Liked</td>
+                  <td><input type="radio" name="choice-like-level" value="strongly-liked" required> Strongly liked</td>
+              </tr>
+            </table>
+            <br>
+
+            2. Please comment on why you liked or disliked <b> your podcast choice </b><br>
+            <br>
+            <textarea rows="5" cols="100" name="choice-comment" required></textarea>
+            <br>
+            <br>
+
+            3. Please indicate how much you liked <b> our recommendations</b><br>
+            <br>
+            <table style="width:100%">
+                <tr>
+                <td><input type="radio" name="recommendation-like-level" value="strongly-disliked" required> Strongly disliked</td>
+                <td><input type="radio" name="recommendation-like-level" value="disliked" required> Disliked</td>
+                <td><input type="radio" name="recommendation-like-level" value="neutral" required> Neutral</td>
+                <td><input type="radio" name="recommendation-like-level" value="liked" required> Liked</td>
+                <td><input type="radio" name="recommendation-like-level" value="strongly-liked" required> Strongly liked</td>
+                </tr>
+            </table>
+            <br>
+            <br>
+
+            4. Please comment on why you liked or disliked <b> our recommendations </b><br>
+            <br>
+            <textarea rows="5" cols="100" name="recommendation-comment" required></textarea>
+            <br>
+            <br>
+            <br>
+
+            <div align="center">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+        </div>
+    </body>
+</html>
