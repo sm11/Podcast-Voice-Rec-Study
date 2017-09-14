@@ -68,7 +68,7 @@ def dispatch():
         return redirect(url_for('show_login'))
     # Client must agree consent form
     if request.referrer != url_for('show_consent_form', _external = True):
-        print "Log: Illegal access to dispatcher"
+        print ("Log: Illegal access to dispatcher")
         return redirect(url_for('show_login'))
 
     # Alternatively dispatch request to voice-based and visual-based system
@@ -94,7 +94,7 @@ def show_visual_sys():
         return redirect(url_for('show_login'))
     # validate that request comes from dispatcher
     if request.referrer != url_for('show_consent_form', _external = True):
-        print "Log: Illegal access to visual system"
+        print ("Log: Illegal access to visual system")
         return redirect(url_for('show_login'))
     global podcast_options
     ncols = 4
@@ -109,7 +109,7 @@ def show_voice_sys():
         return redirect(url_for('show_login'))
     # validate that request comes from dispatcher
     if request.referrer != url_for('show_consent_form', _external = True):
-        print "Log: Illegal access to voice system"
+        print ("Log: Illegal access to voice system")
         return redirect(url_for('show_login'))
     return render_template('voice_sys.html', audio_file=podcast_options_audio)
 
