@@ -1,0 +1,791 @@
+{
+    "encoding": "utf-8",
+    "version": "rss20",
+    "feed": {
+        "subtitle_detail": {
+            "language": null,
+            "type": "text/html",
+            "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+            "value": "iTunes Store : Top Audio Podcasts"
+        },
+        "links": [
+            {
+                "type": "text/html",
+                "rel": "alternate",
+                "href": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss"
+            },
+            {
+                "type": "application/rss+xml",
+                "rel": "self",
+                "href": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss"
+            },
+            {
+                "type": "text/html",
+                "rel": "alternate",
+                "href": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?genreId=26&popId=28"
+            }
+        ],
+        "rights": "Copyright \u00a9 2017 Apple Inc. \u4fdd\u7559\u6240\u6709\u6b0a\u5229\u3002",
+        "updated_parsed": [
+            2017,
+            9,
+            22,
+            11,
+            24,
+            19,
+            4,
+            265,
+            0
+        ],
+        "title": "Top Audio Podcasts",
+        "updated": "Fri, 22 Sep 2017 04:24:19 -0700",
+        "rights_detail": {
+            "language": null,
+            "type": "text/plain",
+            "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+            "value": "Copyright \u00a9 2017 Apple Inc. \u4fdd\u7559\u6240\u6709\u6b0a\u5229\u3002"
+        },
+        "subtitle": "iTunes Store : Top Audio Podcasts",
+        "link": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?genreId=26&popId=28",
+        "title_detail": {
+            "language": null,
+            "type": "text/plain",
+            "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+            "value": "Top Audio Podcasts"
+        },
+        "tags": [
+            {
+                "label": null,
+                "scheme": null,
+                "term": "iTunes Store"
+            }
+        ]
+    },
+    "href": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+    "status": 200,
+    "entries": [
+        {
+            "links": [
+                {
+                    "type": "text/html",
+                    "rel": "alternate",
+                    "href": "https://itunes.apple.com/us/podcast/stay-tuned-with-preet/id1265845136?mt=2"
+                }
+            ],
+            "summary": "Stay Tuned with Preet",
+            "guidislink": false,
+            "summary_detail": {
+                "language": null,
+                "type": "text/html",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "Stay Tuned with Preet"
+            },
+            "title": "Stay Tuned with Preet - CAFE, WNYC Studios, & Pineapple Street Media",
+            "link": "https://itunes.apple.com/us/podcast/stay-tuned-with-preet/id1265845136?mt=2",
+            "id": "https://itunes.apple.com/us/podcast/stay-tuned-with-preet/id1265845136?mt=2",
+            "published_parsed": [
+                2017,
+                9,
+                20,
+                0,
+                0,
+                0,
+                2,
+                263,
+                0
+            ],
+            "tags": [
+                {
+                    "label": null,
+                    "scheme": "https://itunes.apple.com/us/artist/cafe-wnyc-studios-pineapple-street-media/id127981066?mt=2",
+                    "term": "CAFE, WNYC Studios, & Pineapple Street Media"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "podcast"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "News & Politics"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Podcasts"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Government & Organizations"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Society & Culture"
+                }
+            ],
+            "title_detail": {
+                "language": null,
+                "type": "text/plain",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "Stay Tuned with Preet - CAFE, WNYC Studios, & Pineapple Street Media"
+            },
+            "published": "Wed, 20 Sep 2017 00:00:00 +0000"
+        },
+        {
+            "links": [
+                {
+                    "type": "text/html",
+                    "rel": "alternate",
+                    "href": "https://itunes.apple.com/us/podcast/ted-talks-daily/id160904630?mt=2"
+                }
+            ],
+            "summary": "TED Talks Daily",
+            "guidislink": false,
+            "summary_detail": {
+                "language": null,
+                "type": "text/html",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "TED Talks Daily"
+            },
+            "title": "TED Talks Daily - TED",
+            "link": "https://itunes.apple.com/us/podcast/ted-talks-daily/id160904630?mt=2",
+            "id": "https://itunes.apple.com/us/podcast/ted-talks-daily/id160904630?mt=2",
+            "published_parsed": [
+                2017,
+                9,
+                21,
+                0,
+                0,
+                0,
+                3,
+                264,
+                0
+            ],
+            "tags": [
+                {
+                    "label": null,
+                    "scheme": "https://itunes.apple.com/us/artist/ted/id204040224?mt=2",
+                    "term": "TED"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "podcast"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Education"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Podcasts"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Arts"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Science & Medicine"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Society & Culture"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "News & Politics"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Technology"
+                }
+            ],
+            "title_detail": {
+                "language": null,
+                "type": "text/plain",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "TED Talks Daily - TED"
+            },
+            "published": "Thu, 21 Sep 2017 00:00:00 +0000"
+        },
+        {
+            "links": [
+                {
+                    "type": "text/html",
+                    "rel": "alternate",
+                    "href": "https://itunes.apple.com/us/podcast/zealot/id1245635983?mt=2"
+                }
+            ],
+            "summary": "Zealot",
+            "guidislink": false,
+            "summary_detail": {
+                "language": null,
+                "type": "text/html",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "Zealot"
+            },
+            "title": "Zealot - Jo Thornely",
+            "link": "https://itunes.apple.com/us/podcast/zealot/id1245635983?mt=2",
+            "id": "https://itunes.apple.com/us/podcast/zealot/id1245635983?mt=2",
+            "published_parsed": [
+                2017,
+                9,
+                16,
+                0,
+                0,
+                0,
+                5,
+                259,
+                0
+            ],
+            "tags": [
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Jo Thornely"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "podcast"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Comedy"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Podcasts"
+                }
+            ],
+            "title_detail": {
+                "language": null,
+                "type": "text/plain",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "Zealot - Jo Thornely"
+            },
+            "published": "Sat, 16 Sep 2017 00:00:00 +0000"
+        },
+        {
+            "links": [
+                {
+                    "type": "text/html",
+                    "rel": "alternate",
+                    "href": "https://itunes.apple.com/us/podcast/the-daily/id1200361736?mt=2"
+                }
+            ],
+            "summary": "The Daily",
+            "guidislink": false,
+            "summary_detail": {
+                "language": null,
+                "type": "text/html",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "The Daily"
+            },
+            "title": "The Daily - The New York Times",
+            "link": "https://itunes.apple.com/us/podcast/the-daily/id1200361736?mt=2",
+            "id": "https://itunes.apple.com/us/podcast/the-daily/id1200361736?mt=2",
+            "published_parsed": [
+                2017,
+                9,
+                21,
+                0,
+                0,
+                0,
+                3,
+                264,
+                0
+            ],
+            "tags": [
+                {
+                    "label": null,
+                    "scheme": "https://itunes.apple.com/us/artist/the-new-york-times/id121664449?mt=2",
+                    "term": "The New York Times"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "podcast"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "News & Politics"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Podcasts"
+                }
+            ],
+            "title_detail": {
+                "language": null,
+                "type": "text/plain",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "The Daily - The New York Times"
+            },
+            "published": "Thu, 21 Sep 2017 00:00:00 +0000"
+        },
+        {
+            "links": [
+                {
+                    "type": "text/html",
+                    "rel": "alternate",
+                    "href": "https://itunes.apple.com/us/podcast/stuff-you-should-know/id278981407?mt=2"
+                }
+            ],
+            "summary": "Stuff You Should Know",
+            "guidislink": false,
+            "summary_detail": {
+                "language": null,
+                "type": "text/html",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "Stuff You Should Know"
+            },
+            "title": "Stuff You Should Know - HowStuffWorks",
+            "link": "https://itunes.apple.com/us/podcast/stuff-you-should-know/id278981407?mt=2",
+            "id": "https://itunes.apple.com/us/podcast/stuff-you-should-know/id278981407?mt=2",
+            "published_parsed": [
+                2017,
+                9,
+                21,
+                0,
+                0,
+                0,
+                3,
+                264,
+                0
+            ],
+            "tags": [
+                {
+                    "label": null,
+                    "scheme": "https://itunes.apple.com/us/artist/howstuffworks/id284341002?mt=2",
+                    "term": "HowStuffWorks"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "podcast"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Society & Culture"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Podcasts"
+                }
+            ],
+            "title_detail": {
+                "language": null,
+                "type": "text/plain",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "Stuff You Should Know - HowStuffWorks"
+            },
+            "published": "Thu, 21 Sep 2017 00:00:00 +0000"
+        },
+        {
+            "links": [
+                {
+                    "type": "text/html",
+                    "rel": "alternate",
+                    "href": "https://itunes.apple.com/us/podcast/kickass-news/id1027264941?mt=2"
+                }
+            ],
+            "summary": "Kickass News",
+            "guidislink": false,
+            "summary_detail": {
+                "language": null,
+                "type": "text/html",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "Kickass News"
+            },
+            "title": "Kickass News - Mathis Entertainment, Inc.",
+            "link": "https://itunes.apple.com/us/podcast/kickass-news/id1027264941?mt=2",
+            "id": "https://itunes.apple.com/us/podcast/kickass-news/id1027264941?mt=2",
+            "published_parsed": [
+                2017,
+                9,
+                21,
+                0,
+                0,
+                0,
+                3,
+                264,
+                0
+            ],
+            "tags": [
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Mathis Entertainment, Inc."
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "podcast"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "News & Politics"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Podcasts"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "TV & Film"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Technology"
+                }
+            ],
+            "title_detail": {
+                "language": null,
+                "type": "text/plain",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "Kickass News - Mathis Entertainment, Inc."
+            },
+            "published": "Thu, 21 Sep 2017 00:00:00 +0000"
+        },
+        {
+            "links": [
+                {
+                    "type": "text/html",
+                    "rel": "alternate",
+                    "href": "https://itunes.apple.com/us/podcast/this-american-life/id201671138?mt=2"
+                }
+            ],
+            "summary": "This American Life",
+            "guidislink": false,
+            "summary_detail": {
+                "language": null,
+                "type": "text/html",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "This American Life"
+            },
+            "title": "This American Life - This American Life",
+            "link": "https://itunes.apple.com/us/podcast/this-american-life/id201671138?mt=2",
+            "id": "https://itunes.apple.com/us/podcast/this-american-life/id201671138?mt=2",
+            "published_parsed": [
+                2017,
+                9,
+                18,
+                0,
+                0,
+                0,
+                0,
+                261,
+                0
+            ],
+            "tags": [
+                {
+                    "label": null,
+                    "scheme": "https://itunes.apple.com/us/artist/this-american-life/id364380278?mt=2",
+                    "term": "This American Life"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "podcast"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Personal Journals"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Podcasts"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Society & Culture"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Arts"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "News & Politics"
+                }
+            ],
+            "title_detail": {
+                "language": null,
+                "type": "text/plain",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "This American Life - This American Life"
+            },
+            "published": "Mon, 18 Sep 2017 00:00:00 +0000"
+        },
+        {
+            "links": [
+                {
+                    "type": "text/html",
+                    "rel": "alternate",
+                    "href": "https://itunes.apple.com/us/podcast/the-fall-line-a-true-crime-serial/id1244959034?mt=2"
+                }
+            ],
+            "summary": "The Fall Line: a true-crime serial",
+            "guidislink": false,
+            "summary_detail": {
+                "language": null,
+                "type": "text/html",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "The Fall Line: a true-crime serial"
+            },
+            "title": "The Fall Line: a true-crime serial - The Fall Line",
+            "link": "https://itunes.apple.com/us/podcast/the-fall-line-a-true-crime-serial/id1244959034?mt=2",
+            "id": "https://itunes.apple.com/us/podcast/the-fall-line-a-true-crime-serial/id1244959034?mt=2",
+            "published_parsed": [
+                2017,
+                9,
+                22,
+                0,
+                0,
+                0,
+                4,
+                265,
+                0
+            ],
+            "tags": [
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "The Fall Line"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "podcast"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "History"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Podcasts"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Society & Culture"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "News & Politics"
+                }
+            ],
+            "title_detail": {
+                "language": null,
+                "type": "text/plain",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "The Fall Line: a true-crime serial - The Fall Line"
+            },
+            "published": "Fri, 22 Sep 2017 00:00:00 +0000"
+        },
+        {
+            "links": [
+                {
+                    "type": "text/html",
+                    "rel": "alternate",
+                    "href": "https://itunes.apple.com/us/podcast/the-joe-rogan-experience/id360084272?mt=2"
+                }
+            ],
+            "summary": "The Joe Rogan Experience",
+            "guidislink": false,
+            "summary_detail": {
+                "language": null,
+                "type": "text/html",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "The Joe Rogan Experience"
+            },
+            "title": "The Joe Rogan Experience - Joe Rogan",
+            "link": "https://itunes.apple.com/us/podcast/the-joe-rogan-experience/id360084272?mt=2",
+            "id": "https://itunes.apple.com/us/podcast/the-joe-rogan-experience/id360084272?mt=2",
+            "published_parsed": [
+                2017,
+                9,
+                17,
+                0,
+                0,
+                0,
+                6,
+                260,
+                0
+            ],
+            "tags": [
+                {
+                    "label": null,
+                    "scheme": "https://itunes.apple.com/us/artist/joe-rogan/id974891224?mt=2",
+                    "term": "Joe Rogan"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "podcast"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Comedy"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Podcasts"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Technology"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Podcasting"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Society & Culture"
+                }
+            ],
+            "title_detail": {
+                "language": null,
+                "type": "text/plain",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "The Joe Rogan Experience - Joe Rogan"
+            },
+            "published": "Sun, 17 Sep 2017 00:00:00 +0000"
+        },
+        {
+            "links": [
+                {
+                    "type": "text/html",
+                    "rel": "alternate",
+                    "href": "https://itunes.apple.com/us/podcast/lore/id978052928?mt=2"
+                }
+            ],
+            "summary": "Lore",
+            "guidislink": false,
+            "summary_detail": {
+                "language": null,
+                "type": "text/html",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "Lore"
+            },
+            "title": "Lore - Aaron Mahnke",
+            "link": "https://itunes.apple.com/us/podcast/lore/id978052928?mt=2",
+            "id": "https://itunes.apple.com/us/podcast/lore/id978052928?mt=2",
+            "published_parsed": [
+                2017,
+                9,
+                18,
+                0,
+                0,
+                0,
+                0,
+                261,
+                0
+            ],
+            "tags": [
+                {
+                    "label": null,
+                    "scheme": "https://itunes.apple.com/us/artist/aaron-mahnke/id1009389857?mt=2",
+                    "term": "Aaron Mahnke"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "podcast"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "History"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Podcasts"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Society & Culture"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Arts"
+                },
+                {
+                    "label": null,
+                    "scheme": null,
+                    "term": "Literature"
+                }
+            ],
+            "title_detail": {
+                "language": null,
+                "type": "text/plain",
+                "base": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss",
+                "value": "Lore - Aaron Mahnke"
+            },
+            "published": "Mon, 18 Sep 2017 00:00:00 +0000"
+        }
+    ],
+    "namespaces": {
+        "": "http://www.w3.org/2005/Atom"
+    },
+    "headers": {
+        "Connection": "close",
+        "Content-Length": "1518",
+        "X-Frame-Options": "SAMEORIGIN",
+        "ETag": "W/\"ff7512d130dbff9e121ffdf5df03c799\"",
+        "X-Runtime": "7.206196",
+        "Date": "Sat, 23 Sep 2017 04:37:29 GMT",
+        "Cache-Control": "private, must-revalidate, max-age=0",
+        "Vary": "Accept-Encoding",
+        "Strict-Transport-Security": "max-age=0",
+        "Server": "nginx/1.4.6 (Ubuntu)",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Encoding": "gzip",
+        "Content-Type": "application/rss+xml; charset=utf-8",
+        "Status": "200 OK",
+        "X-Request-Id": "47a08b5d-cb0a-47e2-810f-5a4c3b9e8de3",
+        "X-XSS-Protection": "1; mode=block"
+    },
+    "bozo": 0,
+    "etag": "W/\"ff7512d130dbff9e121ffdf5df03c799\""
+}

@@ -1,0 +1,14 @@
+import feedparser
+
+feed = feedparser.parse('https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/200/non-explicit.rss')
+
+posts = []
+for i in range(0,len(feed['entries'])):
+    posts.append({
+        'title': feed['entries'][i].title,
+        'description': feed['entries'][i].summary,
+        'url': feed['entries'][i].link,
+    })
+
+for i in range (10):
+    print (post[i])
