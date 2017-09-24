@@ -1,29 +1,29 @@
 [
     {
-        "count": 1,
         "podcasts": [
             {
-                "file-name": "/Users/divinity/small_data/Podcast-Voice-Rec-Study/static/audio/Preet Bharara.mp3",
-                "title": "Stay Tuned with Preet - CAFE, WNYC Studios, & Pineapple Street Media"
+                "title": "Stay Tuned with Preet - CAFE, WNYC Studios, & Pineapple Street Media",
+                "file-name": "/Users/divinity/small_data/Podcast-Voice-Rec-Study/static/audio/Preet Bharara.mp3"
             }
-        ]
+        ],
+        "count": 1
     },
     {
-        "count": 2,
         "podcasts": [
             {
-                "file-name": "/Users/divinity/small_data/Podcast-Voice-Rec-Study/static/audio/TED Talks Daily.mp3",
-                "title": "TED Talks Daily - TED"
+                "title": "TED Talks Daily - TED",
+                "file-name": "/Users/divinity/small_data/Podcast-Voice-Rec-Study/static/audio/TED Talks Daily.mp3"
             }
-        ]
+        ],
+        "count": 2
     },
     {
-        "count": 3,
         "podcasts": [
             {
-                "file-name": "/Users/divinity/small_data/Podcast-Voice-Rec-Study/static/audio/Zealot.mp3",
-                "title": "Zealot - Jo Thornely"
+                "title": "Zealot - Jo Thornely",
+                "file-name": "/Users/divinity/small_data/Podcast-Voice-Rec-Study/static/audio/Zealot.mp3"
             }
-        ]
+        ],
+        "count": 3
     }
 ]

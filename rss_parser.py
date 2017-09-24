@@ -10,8 +10,16 @@ from xml.etree import ElementTree as etree
 import feedparser
 import json
 
-
-
+# progress bar functions
+def _reporthook(numblocks, blocksize, filesize, url=None):
+    try:
+        percent = min((numblocks*blocksize*100)/filesize, 100)
+    except:
+        percent = 100
+    if numblocks != 0:
+        bar = '#' * int(percent/5) + '-' * int(20-percent/5)
+        print('\r[%s] %s%s   ' % (bar, percent, '%')),
+        sys.stdout.flush()
 
 #import requests
 def geturl(url, dst):
@@ -23,7 +31,8 @@ def geturl(url, dst):
     """
 
     try:
-        urllib.request.urlretrieve(url, dst.encode("ascii", "ignore"))
+        urllib.request.urlretrieve(url, dst.encode("ascii", "ignore"),
+                       lambda nb, bs, fs, url=url: _reporthook(nb,bs,fs,url))
     except IOError:
         print("There was an error retrieving the data. Check your internet connection and try again.")
         sys.exit(0)
