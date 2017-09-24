@@ -11,6 +11,7 @@ import feedparser
 import json
 
 # progress bar functions
+"""
 def _reporthook(numblocks, blocksize, filesize, url=None):
     try:
         percent = min((numblocks*blocksize*100)/filesize, 100)
@@ -20,6 +21,7 @@ def _reporthook(numblocks, blocksize, filesize, url=None):
         bar = '#' * int(percent/5) + '-' * int(20-percent/5)
         print('\r[%s] %s%s   ' % (bar, percent, '%')),
         sys.stdout.flush()
+"""
 
 #import requests
 def geturl(url, dst):
@@ -31,8 +33,8 @@ def geturl(url, dst):
     """
 
     try:
-        urllib.request.urlretrieve(url, dst.encode("ascii", "ignore"),
-                       lambda nb, bs, fs, url=url: _reporthook(nb,bs,fs,url))
+        urllib.request.urlretrieve(url, dst.encode("ascii", "ignore"))
+                       #lambda nb, bs, fs, url=url: _reporthook(nb,bs,fs,url))
     except IOError:
         print("There was an error retrieving the data. Check your internet connection and try again.")
         sys.exit(0)
@@ -123,7 +125,7 @@ def main():
         geturl(mp3list[0], saveLoc)
 
     with open('./static/options.json', 'w') as outfile:
-        json.dump(result, outfile, indent=4, sort_keys=True)
+        json.dump(result, outfile, indent=4, sort_keys=False)
         
 
 if __name__ == '__main__':
