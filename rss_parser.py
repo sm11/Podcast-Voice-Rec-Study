@@ -124,7 +124,7 @@ def main():
         geturl(mp3list[0], saveLoc)
 
     with open('./static/options.json', 'w') as outfile:
-        json.dump(result, outfile, indent=4, sort_keys=False)
+        json.dump(result, outfile, indent=4, sort_keys=True)
         
 
 if __name__ == '__main__':
