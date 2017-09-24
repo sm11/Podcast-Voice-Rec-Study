@@ -33,7 +33,7 @@ def geturl(url, dst):
 
 def main():
 
-    feed = feedparser.parse('https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/3/non-explicit.rss')
+    feed = feedparser.parse('https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/200/non-explicit.rss')
 
     with open('./static/optionsA.json', 'w') as outfile:
         json.dump(feed, outfile, indent=4, sort_keys=True)
