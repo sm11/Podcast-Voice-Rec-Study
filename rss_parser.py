@@ -15,13 +15,15 @@ import json
 
 #import requests
 def geturl(url, dst):
+    """
     if(os.path.isfile(dst)):
         if(input("A file already exists with that name. Continue? (y/n)").lower() == 'n'):
             print("Move the file and try again")
             sys.exit(0)
+    """
+
     try:
         urllib.request.urlretrieve(url, dst.encode("ascii", "ignore"))
-                      # lambda nb, bs, fs, url=url: _reporthook(nb,bs,fs,url))
     except IOError:
         print("There was an error retrieving the data. Check your internet connection and try again.")
         sys.exit(0)
@@ -30,18 +32,15 @@ def geturl(url, dst):
         os.remove(dst)
         sys.exit(1)
 
-
-def main():
-
-    feed = feedparser.parse('https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/200/non-explicit.rss')
-
+def parseFeed(url):
+    feed = feedparser.parse(url)
     with open('./static/optionsA.json', 'w') as outfile:
         json.dump(feed, outfile, indent=4, sort_keys=True)
 
     with open('./static/optionsA.json', 'r') as infile:
         data = json.load(infile)
 
-        pod_ids = []
+        p_ids = []
         title_list = data['entries']
         for item in title_list:
             a = dict(item)
@@ -49,8 +48,12 @@ def main():
             title = a.get('title')
             pod_id = re.findall(r'\d+', url)[0]
             add_id = [{'title': title, 'id':pod_id}]
-            pod_ids.append(add_id)
+            p_ids.append(add_id)
+    return p_ids
 
+def main():
+    link = 'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/3/non-explicit.rss'
+    pod_ids = parseFeed(link)
     result = []
     count = 1
 
@@ -108,18 +111,7 @@ def main():
         count += 1
 
         result.append(pod_dict)
-        #geturl(mp3list[0], saveLoc)
-        
-        try:
-            urllib.request.urlretrieve(mp3list[0], saveLoc.encode("ascii", "ignore"))
-                          # lambda nb, bs, fs, url=url: _reporthook(nb,bs,fs,url))
-        except IOError:
-            print("There was an error retrieving the data. Check your internet connection and try again.")
-            sys.exit(0)
-        except KeyboardInterrupt:
-            print("\n\nYou have interrupted an active download.\n Cleaning up fines now.")
-            os.remove(dst)
-            sys.exit(1)
+        geturl(mp3list[0], saveLoc)
 
     with open('./static/options.json', 'w') as outfile:
         json.dump(result, outfile, indent=4, sort_keys=True)
