@@ -62,7 +62,7 @@ def parseFeed(url):
     return p_ids
 
 def main():
-    link = 'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/200/non-explicit.rss'
+    link = 'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss'
     pod_ids = parseFeed(link)
     result = []
     count = 1
@@ -113,18 +113,18 @@ def main():
         for val in values:
             mp3list.append(val.attributes['url'].value)
 
-        saveLoc = os.path.dirname(os.path.realpath(__file__)) + "/static/audio/" + titles[0].firstChild.nodeValue + ".mp3"
-
+        saveLoc = os.path.join(os.path.dirname(os.path.realpath(__file__)), "static/audio", titles[0].firstChild.nodeValue + ".mp3")
+#os.path.join(SITE_ROOT, "static", "options.json")
         pod_dict={}
         pod_dict['count'] = count
-        pod_dict['podcasts'] = [{'title': podcastName, 'file-name': saveLoc}]
+        pod_dict['podcasts'] = [{'title': podcastName, 'file-name': titles[0].firstChild.nodeValue + ".mp3"}]
         count += 1
 
         result.append(pod_dict)
         geturl(mp3list[0], saveLoc)
 
     with open('./static/options.json', 'w') as outfile:
-        json.dump(result, outfile, indent=4, sort_keys=False)
+        json.dump(result, outfile, indent=4, sort_keys=True)
         
 
 if __name__ == '__main__':

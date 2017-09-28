@@ -22,21 +22,23 @@
             </p>
 
             <!-- Podcast Grid -->
-            <div>
+            
                 <table  align="center">
-                {% for i in range(0, podcast_options['podcasts']|length) %}
+                {% for i in range(0, podcast_options|length) %}
                     {% if i % ncols == 0 %}
+                    
                         <tr>
                     {% endif %}
-                        <td> <div id="podcast-{{ i }}" onclick="sendAndRedirect(this)"> {{ podcast_options['podcasts'][i]["title"] }} </div> </td>
+                        <td> <div id="podcast-{{ i }}" onclick="sendAndRedirect(this)"> {{ podcast_options[i]['podcasts'][0]["title"] }} </div> </td>
                     {% if i % ncols == (ncols - 1) %}
                         </tr>
                     {% endif %}
                 {% endfor %}
-                {% if podcast_options['podcasts']|length % ncols != 0 %}
+                {% if podcast_options[i]|length % ncols != 0 %}
                     </tr>
                 {% endif %}
                 </table>
+
             </div>
 
             <script>

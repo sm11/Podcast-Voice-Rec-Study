@@ -3,6 +3,7 @@ from flask import render_template
 from flask import request, session, redirect, url_for, flash
 from flask import jsonify
 import json
+import os 
 
 app = Flask(__name__)
 app._static_folder = 'static'
@@ -12,6 +13,9 @@ app.secret_key = 'somesecretkey'
 
 
 # file names
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))  
+json_url = os.path.join(SITE_ROOT, "static", "options.json")
+
 podcast_options_json = 'options.json'
 podcast_options_audio = 'options.mp3'
 podcast_audio_dir = 'audio'
@@ -19,9 +23,10 @@ data_dir = 'data'
 log_file_name = 'view_log'
 survey_result_file_name = 'survey_result'
 
-
 # global vars
-podcast_options = {}
+podcast_options = json.load(open(json_url))
+#data = json.load(open(json_url))
+
 lastRequestIsVoice = True
 
 """
@@ -89,6 +94,8 @@ def dispatch():
 # endpoint for visual based rec system
 @app.route('/visual-sys')
 def show_visual_sys():
+    global podcast_options
+
     # Client must login
     if 'user-id' not in session:
         return redirect(url_for('show_login'))
@@ -96,8 +103,9 @@ def show_visual_sys():
     if request.referrer != url_for('show_consent_form', _external = True):
         print ("Log: Illegal access to visual system")
         return redirect(url_for('show_login'))
-    global podcast_options
+    
     ncols = 4
+    
     return render_template('visual_sys.html', podcast_options = podcast_options, ncols = ncols)
 
 
@@ -121,7 +129,9 @@ def play_audio(podcast_id):
         return redirect(url_for('show_login'))
 
     session['podcast-id'] = podcast_id
-    audio_file = podcast_audio_dir + '/' + podcast_options['podcasts'][podcast_id]['file-name']
+    audio_file = podcast_audio_dir + '/' + podcast_options[podcast_id]['podcasts'][0]['file-name']
+    #audio_file = 'file:///Users/divinity/small_data/Podcast-Voice-Rec-Study/static/audio/Help!%20I%20Suck%20at%20Dating%20with%20Dean%20Unglert.mp3'
+    print (audio_file)
     return render_template('player.html', audio_file=audio_file, pause_offset = 300)
 
 
