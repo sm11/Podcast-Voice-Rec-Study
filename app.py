@@ -1,9 +1,18 @@
+#!/usr/bin/env python3
+
 from flask import Flask
 from flask import render_template
 from flask import request, session, redirect, url_for, flash
 from flask import jsonify
 import json
-import os 
+import os
+from helpers import textToSpeech
+from helpers import rss_parser
+
+
+rss_parser()
+textToSpeech()
+
 
 app = Flask(__name__)
 app._static_folder = 'static'
@@ -25,13 +34,14 @@ survey_result_file_name = 'survey_result'
 
 # global vars
 podcast_options = json.load(open(json_url))
-#data = json.load(open(json_url))
 
 lastRequestIsVoice = True
+
 
 """
     Testing endpoints
 """
+
 @app.route('/ping')
 def ping():
     return "pong"
@@ -43,11 +53,11 @@ def logout():
     return redirect(url_for('show_login'))
 
 
-
 """
     Logging In and Dispatching
     TODO: check duplicate submission
 """
+
 @app.route('/login', methods=['POST', 'GET'])
 @app.route('/', methods=['POST', 'GET'])
 def show_login():
@@ -88,9 +98,11 @@ def dispatch():
         return redirect(url_for('show_voice_sys'))
 
 
+
 """
     Voice/Visual System and Survey
 """
+
 # endpoint for visual based rec system
 @app.route('/visual-sys')
 def show_visual_sys():
@@ -185,6 +197,8 @@ def collect_data():
 def page_not_found(e):
     return "Page Not Found. To login, please visit /login"
 
+
+
 if __name__ == "__main__":
 
     # Load podcasts
@@ -192,3 +206,5 @@ if __name__ == "__main__":
         podcast_options = json.load(podcasts_fd)
     # start server
     app.run(threaded=True)
+
+
