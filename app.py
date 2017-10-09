@@ -6,13 +6,15 @@ from flask import request, session, redirect, url_for, flash
 from flask import jsonify
 import json
 import os
+
+"""
 from helpers import textToSpeech
 from helpers import rss_parser
 
 
 rss_parser()
 textToSpeech()
-
+"""
 
 app = Flask(__name__)
 app._static_folder = 'static'
