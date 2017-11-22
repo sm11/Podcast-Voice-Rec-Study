@@ -8,7 +8,11 @@
               <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-              <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+              
+              <!-- Added styling -->
+            <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+            
         <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
  -->
  <script integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -35,8 +39,8 @@
             <br>
 
             <div align = "center">
-                <button type="button" onclick="playaudio()" style="margin-right:20px;">Play</button>
-                <button type="button" onclick="pauseaudio()" style="margin-left:20px;">Pause</button>
+                <button type="button" class="page_btn" onclick="playaudio()" style="margin-right:20px;">Play</button>
+                <button type="button" class="page_btn" onclick="pauseaudio()" style="margin-left:20px;">Pause</button>
             </div>
 
             <audio id="player">
@@ -96,7 +100,7 @@
             <br>
             <div align = "center">
                 <input type="text" id="podcast-id" >
-                <button type="button" id = "sub_btn" onclick= "submit()" data-pod = "{{ podcast_options }}" data-target="#voiceModal">Submit</button>
+                <button type="button" class="page_btn" id = "sub_btn" onclick= "submit()" data-pod = "{{ podcast_options }}" data-target="#voiceModal">Submit</button>
             </div>
 
 
