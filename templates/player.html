@@ -6,6 +6,8 @@
         <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
         <script src="js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+
 
     </head>
     <body>
@@ -15,7 +17,7 @@
         Your browser does not support audio files
         </audio>
         <div style = "margin-top: 50px;" align = "center">
-            <button id="continuebtn" type="button"  style="display:none"> Continue </button>
+            <button id="continuebtn" class="page_btn" type="button"  style="display:none"> Continue </button>
         </div>
 
         <!-- disabled onclick="window.location='/_dispatch'" -->
@@ -25,7 +27,7 @@
             var paused = false;
             var btn = document.getElementById("continuebtn");
 
-            var time = 10 * 1000 + 5;
+            var time = 1 //10 * 1000 + 5;
             var timer;
             var timeStamp1;
             var timeStamp2;

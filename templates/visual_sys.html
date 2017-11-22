@@ -8,14 +8,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+        <!-- Added style -->
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+        
         <!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  -->
-        <style>
-        td {
-             border: 0.3px solid rgb(156, 155, 158);
-             padding: 1%;
-            }
-        </style>
-       <!--  <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
+
     </head>
 
     <body>
@@ -30,10 +30,10 @@
 
             <!-- Podcast Grid sendAndRedirect(this)-->
             
-                <table  align="center">
+                <table  class = "tbl" align="center">
                 {% for i in range(0, podcast_options|length) %}
-                <tr>
-                    <td class = "serial_cell"> {{i + 1}} </td>
+                <tr class="vis_tr">
+                    <td class = "serial_cell"> {{i}} </td>
                     <td>
                         <div id="podcast-{{ i }}" data-toggle="modal" data-target="#podModal"  data-id= "{{i}}" data-name = "{{ podcast_options[i]['podcasts'][0]["title"] }}" onclick = "getDiv(this)" class="title-cell">{{ podcast_options[i]['podcasts'][0]["title"] }}
                          </div>

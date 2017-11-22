@@ -2,11 +2,12 @@
 <html>
     <head>
         <title> Survey </title>
-        <<meta charset="utf-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
     </head>
     <body>
         <h1 align="middle">Survey</h1>
@@ -17,11 +18,11 @@
             <table style="width:100%">
               <br>
               <tr>
-                  <td><input type="radio" name="choice-like-level" value="strongly-disliked" required> Strongly disliked</td>
-                  <td><input type="radio" name="choice-like-level" value="disliked" required> Disliked </td>
-                  <td><input type="radio" name="choice-like-level" value="neutral" required> Neutral</td>
-                  <td><input type="radio" name="choice-like-level" value="liked" required> Liked</td>
-                  <td><input type="radio" name="choice-like-level" value="strongly-liked" required> Strongly liked</td>
+                  <td class="surv_cell"><input type="radio" name="choice-like-level" value="strongly-disliked" required> Strongly disliked</td>
+                  <td class="surv_cell"><input type="radio" name="choice-like-level" value="disliked" required> Disliked </td>
+                  <td class="surv_cell"><input type="radio" name="choice-like-level" value="neutral" required> Neutral</td>
+                  <td class="surv_cell"><input type="radio" name="choice-like-level" value="liked" required> Liked</td>
+                  <td class="surv_cell"><input type="radio" name="choice-like-level" value="strongly-liked" required> Strongly liked</td>
               </tr>
             </table>
             <br>
@@ -36,11 +37,11 @@
             <br>
             <table style="width:100%">
                 <tr>
-                <td><input type="radio" name="recommendation-like-level" value="strongly-disliked" required> Strongly disliked</td>
-                <td><input type="radio" name="recommendation-like-level" value="disliked" required> Disliked</td>
-                <td><input type="radio" name="recommendation-like-level" value="neutral" required> Neutral</td>
-                <td><input type="radio" name="recommendation-like-level" value="liked" required> Liked</td>
-                <td><input type="radio" name="recommendation-like-level" value="strongly-liked" required> Strongly liked</td>
+                <td class="surv_cell" ><input type="radio" name="recommendation-like-level" value="strongly-disliked" required> Strongly disliked</td>
+                <td class="surv_cell"><input type="radio" name="recommendation-like-level" value="disliked" required> Disliked</td>
+                <td class="surv_cell"><input type="radio" name="recommendation-like-level" value="neutral" required> Neutral</td>
+                <td class="surv_cell"><input type="radio" name="recommendation-like-level" value="liked" required> Liked</td>
+                <td class="surv_cell"><input type="radio" name="recommendation-like-level" value="strongly-liked" required> Strongly liked</td>
                 </tr>
             </table>
             <br>
@@ -54,7 +55,7 @@
             <br>
 
             <div align="center">
-            <input id="next" type="submit" value="Submit" >
+            <input id="next" type="submit" class="page_btn" value="Submit" >
           </div>
         </form>
         </div>
@@ -69,12 +70,12 @@
                       <h4 class="modal-title">Confirmation Code</h4>
                     </div>
                     <div class="modal-body">
-                      <p><b>Please copy and paste the code code below into AMT</b></p>
+                      <p class="modal_p"><b>Please copy and paste the code code below into AMT</b></p>
                       <p class="modalText code">{{ passcode }}</p>
                     </div>
                     <div class="modal-footer">
                      <div align= "center">
-                      <a href="./thankyou"><button type="button" class="btn btn-primary" id="continuebtn" align="center">I have copied and pasted the code in AMT</button></a>
+                      <a href="./thankyou"><button type="button" class="btn btn-primary modal_p" id="continuebtn">I have copied and pasted the code in AMT</button></a>
                     </div>
                     </div>
                   </div>
