@@ -8,11 +8,20 @@ from xml.dom import minidom
 from xml.etree import ElementTree as etree
 import feedparser
 import json
+import pprint
 
 
 
 basepath = os.path.dirname(__file__)
 static_folderpath = os.path.abspath(os.path.join(basepath, "..", "static"))
+audio_hold_folderpath = os.path.abspath(os.path.join(basepath, "..", "static/audio_hold"))
+audio_folderpath = os.path.abspath(os.path.join(basepath, "..", "static/audio"))
+dirname = os.path.dirname(os.path.realpath(__file__))
+
+if not os.path.exists(audio_hold_folderpath):
+    os.makedirs(audio_hold_folderpath)
+if not os.path.exists(audio_folderpath):
+    os.makedirs(audio_folderpath)
 
 
 # progress bar functions
@@ -62,10 +71,20 @@ def parseFeed(url):
             a = dict(item)
             url = a.get('link')
             title = a.get('title')
-            pod_id = re.findall(r'\d+', url)[0]
+            url_split = re.split('/', url)
+            elements = [re.findall('\id\d+', s) for s in url_split]
+            el = [e for e in elements if len(e)][0][0]
+            pod_id = re.split('id', el)[-1]
             add_id = [{'title': title, 'id':pod_id}]
             p_ids.append(add_id)
     return p_ids
+
+def trim():
+    import subprocess
+    filepath = os.path.abspath(os.path.join(dirname, "sox_trim.sh"))
+    subprocess.call([filepath])
+
+
 
 def rss_parser():
     link = 'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss'
@@ -125,12 +144,14 @@ def rss_parser():
         for val in values:
             mp3list.append(val.attributes['url'].value)
 
-        saveLoc = os.path.join(static_folderpath, "audio", titles[0].firstChild.nodeValue + ".mp3")
+        saveLoc = os.path.join(audio_hold_folderpath, titles[0].firstChild.nodeValue + ".mp3")
 
         #os.path.join(SITE_ROOT, "static", "options.json")
         pod_dict={}
         pod_dict['count'] = count
-        pod_dict['podcasts'] = [{'title': podcastName, 'file-name': titles[0].firstChild.nodeValue + ".mp3"}]
+        stitle =  titles[0].firstChild.nodeValue.encode('ascii','ignore').decode('unicode_escape')
+        #pod_dict['podcasts'] = [{'title': podcastName, 'file-name': titles[0].firstChild.nodeValue + ".mp3"}]
+        pod_dict['podcasts'] = [{'title': podcastName, 'file-name': stitle + ".mp3"}]
         count += 1
 
         result.append(pod_dict)
@@ -139,6 +160,7 @@ def rss_parser():
     with open(static_folderpath+'/options.json', 'w') as outfile:
         json.dump(result, outfile, indent=4, sort_keys=True)
 
+    trim()
 
 """
 if __name__ == '__main__':

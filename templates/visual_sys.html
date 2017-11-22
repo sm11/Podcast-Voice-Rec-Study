@@ -2,13 +2,20 @@
 <html>
     <head>
         <title>Visual System</title>
+        <!-- Bootstrap -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  -->
         <style>
         td {
-             border: 2px solid green;
-             width: 10%;
+             border: 0.3px solid rgb(156, 155, 158);
+             padding: 1%;
             }
         </style>
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+       <!--  <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
     </head>
 
     <body>
@@ -21,28 +28,75 @@
                 The stream of podcasts is long, you can scroll down to the bottom to load more recomendations.
             </p>
 
-            <!-- Podcast Grid -->
+            <!-- Podcast Grid sendAndRedirect(this)-->
             
                 <table  align="center">
                 {% for i in range(0, podcast_options|length) %}
-                    {% if i % ncols == 0 %}
-                    
-                        <tr>
-                    {% endif %}
-                        <td> <div id="podcast-{{ i }}" onclick="sendAndRedirect(this)"> {{ podcast_options[i]['podcasts'][0]["title"] }} </div> </td>
-                    {% if i % ncols == (ncols - 1) %}
-                        </tr>
-                    {% endif %}
-                {% endfor %}
-                {% if podcast_options[i]|length % ncols != 0 %}
-                    </tr>
-                {% endif %}
-                </table>
+                <tr>
+                    <td class = "serial_cell"> {{i + 1}} </td>
+                    <td>
+                        <div id="podcast-{{ i }}" data-toggle="modal" data-target="#podModal"  data-id= "{{i}}" data-name = "{{ podcast_options[i]['podcasts'][0]["title"] }}" onclick = "getDiv(this)" class="title-cell">{{ podcast_options[i]['podcasts'][0]["title"] }}
+                         </div>
+                    </td>
+                </tr>
 
+                {% endfor %}
+                    </tr>
+
+                </table>
+                <div id="podModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                  
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Podcast Selection Confirmation</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p class="modalText">You have chosen to listen to </p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-primary" onclick="sendAndRedirect(_value)">Yes</button>
+                        </div>
+                      </div>
+                  
+                    </div>
+                  </div>
+        </div>
             </div>
+
 
             <script>
 
+            var _value      
+            $(document).ready(function () {
+                console.log("Loaded")
+                $('#podModal').on('show.bs.modal', function (event) { // id of the modal with event
+                  var button = $(event.relatedTarget) // Button that triggered the modal
+                  var podId = "podcast-"+button.data('id') // Extract info from data-* attributes
+                  var podname = button.data('name')
+                 // var title = 'Podcast Selection Confirmation  of Podcast ' + (podId+1)
+                  var content = 'Are you sure want to listen to ' + podname + '?'
+                  
+                  // Update the modal's content.
+                  var modal = $(this)
+                  //modal.find('.modal-title').text(title)
+                  modal.find('.modal-body').text(content)	  
+
+                  // And if you wish to pass the podId to modal's 'Yes' button for further processing
+
+                  //modal.find('button.btn-primary').val(this)
+                  //console.log(button.btn-primary.val)
+                  
+                })
+            })
+
+            function getDiv(e){
+                _value = e
+                
+            }
                 // helper functions for data collection
                 function init_log() {
                   log["view"] = [];
@@ -80,6 +134,9 @@
                 });
 
                 function sendAndRedirect(e) {
+                    console.log("In send and req")
+                    console.log(e)
+                    console.log(e.id)
                     var xhr = new XMLHttpRequest();
                     xhr.open("POST", "/_data-collector", true);
                     xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
