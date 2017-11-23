@@ -99,7 +99,7 @@
             Index number of your selected Podcast<br>
             <br>
             <div align = "center">
-                <input type="text" id="podcast-id" >
+                <input type="text" class="input-field" id="podcast-id" >
                 <button type="button" class="page_btn" id = "sub_btn" onclick= "submit()" data-pod = "{{ podcast_options }}" data-target="#voiceModal">Submit</button>
             </div>
 
@@ -117,8 +117,8 @@
                           <p class="modalText">You have chosen to listen to </p>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                          <button type="button" class="btn btn-primary" onclick="send()">Yes</button>
+                          <button type="button" class="btn btn-default mod-btn" data-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-primary mod-btn" onclick="send()">Yes</button>
                         </div>
                       </div>
                   
