@@ -6,15 +6,35 @@ body{
 	font-variant: normal;
 	font-weight: 400;
 	line-height: 24px;
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../img/round.png);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../img/round.png);
+    /*background-image: url(../img/cork-wallet.png);*/
+	background-size: 100%;
+    background-position: center;
+    /*height: 100vh;*/
+    background-attachment: fixed;
 }
-.vis_tr:hover,
+.vis_tr:hover{
+	background-color: lightskyblue;
+	background: -webkit-radial-gradient(lightskyblue, white, lightskyblue); /* For Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(lightskyblue, white, lightskyblue); /* For Opera 11.1 to 12.0 */
+    background: -moz-radial-gradient(lightskyblue, white, lightskyblue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient( black,grey,  black); /* Standard syntax (must be last) */
+	color: white;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
 .surv_cell:hover{
 	background-color: lightskyblue;
-	background: -webkit-radial-gradient(170deg, lightskyblue, white, lightskyblue); /* For Safari 5.1 to 6.0 */
-    background: -o-radial-gradient(170deg, lightskyblue, white, lightskyblue); /* For Opera 11.1 to 12.0 */
-    background: -moz-radial-gradient(170deg, lightskyblue, white, lightskyblue); /* For Firefox 3.6 to 15 */
-    background: radial-gradient( lightskyblue,white,  lightskyblue); /* Standard syntax (must be last) */
+	background: -webkit-linear-gradient(170deg, lightskyblue, white, lightskyblue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(170deg, lightskyblue, white, lightskyblue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(170deg, lightskyblue, white, lightskyblue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient( 170deg, lightskyblue,white,  lightskyblue); /* Standard syntax (must be last) */
 	color: purple;
+}
+
+.page_btn{
+	box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .page_btn:hover{
@@ -23,8 +43,17 @@ body{
     background: -o-linear-gradient(175deg, darkgrey, white, lightgrey); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(175deg, darkgrey, white, lightgrey); /* For Firefox 3.6 to 15 */
     background: linear-gradient(175deg, darkgrey,white,  lightgrey); /* Standard syntax (must be last) */
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	/*transform: translate(0px, -0.8px) scale(1);*/
 }
 
+.mod-btn{
+	box-shadow: 0 8px 10px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.mod-btn:hover{
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 .serial_cell, td{
     padding-left: 15px;
     padding-right: 15px;
@@ -48,9 +77,18 @@ h1{
 	line-height: 26.4px;
 }
 
+h2{
+	font-family: Lato;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 800;
+	line-height: 26.4px;
+}
+
 h3 {
 	font-family: Lato;
-	font-size: 14px;
+	font-size: 18px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
@@ -79,4 +117,8 @@ pre {
 	font-variant: normal;
 	font-weight: 400;
 	line-height: 18.5714px;
+}
+
+.input-field{
+	box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.23);
 }
