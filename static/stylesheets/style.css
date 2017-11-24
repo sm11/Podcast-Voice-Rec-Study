@@ -8,10 +8,9 @@ body{
 	line-height: 24px;
     background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../img/round.png);
     background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../img/round.png);
-    /*background-image: url(../img/cork-wallet.png);*/
 	background-size: 100%;
     background-position: center;
-    /*height: 100vh;*/
+    height: 100vh;
     background-attachment: fixed;
 }
 .vis_tr:hover{
