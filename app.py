@@ -50,6 +50,9 @@ podcast_options = json.load(open(json_url))
 code = ""
 code_set = set()
 lastRequestIsVoice = True
+session_ids = set()
+req_json=""
+hitID, assignmentID, workerID  = "","", ""
 
 
 
@@ -65,11 +68,11 @@ mysql.init_app(app)
 """
     Testing endpoints
 """
-
+"""
 @app.route('/ping')
 def ping():
     return "pong"
-
+"""
 
 @app.route('/logout')
 def logout():
@@ -98,11 +101,28 @@ def dated_url_for(endpoint, **values):
 @app.route('/', methods=['POST', 'GET'])
 def show_login():
     global code
+    global session_ids
+    global hitID
+    global assignmentID
+    global workerID
     
     code = codeGen()
+    if request.method == 'GET':
+        req_json = request.args.to_dict()
+        hitID = req_json.get('hitId', None)
+        workerID = req_json.get('workerId', None)
+        assignmentID = req_json.get('assignmentId', None)
+        #print (hitID)
+
+
     if request.method == 'POST':
-        session['user-id'] = request.form["user-id"]
-        return redirect(url_for('show_consent_form'))
+        req_json = request.form.get('hitId')
+        print ("req2", req_json)
+        worker_id = request.form["user-id"]
+        if request.form["user-id"] not in session_ids:
+            #session_ids.add(worker_id)
+            session['user-id'] = worker_id
+            return redirect(url_for('show_consent_form'))
     return render_template('login.html')
 
 
@@ -128,6 +148,7 @@ def dispatch():
         return redirect(url_for('show_login'))
 
     # Alternatively dispatch request to voice-based and visual-based system
+    insert_data()
     if lastRequestIsVoice:
         lastRequestIsVoice = False
         session['is-voice'] = False
@@ -170,7 +191,6 @@ def show_voice_sys():
 
 
     # Client must login
-    
     if 'user-id' not in session:
         return redirect(url_for('show_login'))
     # validate that request comes from dispatcher
@@ -188,7 +208,6 @@ def play_audio(podcast_id):
 
     session['podcast-id'] = podcast_id
     audio_file = podcast_audio_dir + '/' + podcast_options[podcast_id]['podcasts'][0]['file-name']
-    #audio_file = 'audio/Who\u2019s Gerry and Why Is He So Bad at Drawing Maps?.mp3'
     print ("Audio File", audio_file)
     return render_template('player.html', audio_file=audio_file, pause_offset = 300)
 
@@ -248,18 +267,44 @@ def page_not_found(e):
     return "Page Not Found. To login, please visit /login"
 
 
-@app.route("/Authenticate")
-def Authenticate():
-    hitID = request.args.get('hitID')
-    code = request.args.get('assignedCode')
-    cursor = mysql.connect().cursor()
-    cursor.execute("SELECT * from Participants where hitID='" + hitID + "' and code='" + assignedCode + "'")
-    data = cursor.fetchone()
-    if data is None:
-        return "hitID or assignedCode is wrong"
-    else:
-        return "Thank you! You're all set!"
+@app.route("/insert_data", methods=['POST'])
+def insert_data():
+    global code
+    global hitID, workerID, assignmentID 
+    global req_json
 
+    print ("heya!", hitID)
+    #code = request.args.get('assignedCode')
+    #req_json = request.get_json()
+    
+    assignedCode = code
+    #assignmentID = req_json['assignmentID']
+    #workerID = req_json['workerID']
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO Participants (hitID, assignedCode, assignmentID, workerID) VALUES ('" + str(hitID) + "', '" + str(assignedCode) + "', '" + str(assignmentID) + "', '" + str(workerID) + "')")
+    conn.commit()
+
+    print ("ass {} hit {} work {}".format(assignmentID, hitID, workerID))
+    return 'inserted code'
+
+@app.route("/participants", methods=['GET'])
+def get_participants():
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM Participants")
+    data = cursor.fetchall()
+    #print(data)
+    return jsonify(data)
+
+def get_table_columns(table):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='ParticipantsData' AND `TABLE_NAME`='" + table + "'")
+    data = cursor.fetchall()
+    print(data)
+    return 'got table columns'
+    #get_table_columns('Participants')
 
 #---helper functions -----#
 def codeGen():
@@ -284,8 +329,8 @@ def codeGen():
 if __name__ == "__main__":
 
     # Load podcasts
-    with open(app._static_folder + "/" + podcast_options_json) as podcasts_fd:
-        podcast_options = json.load(podcasts_fd)
+    #with open(app._static_folder + "/" + podcast_options_json) as podcasts_fd:
+        #podcast_options = json.load(podcasts_fd)
     # start server
     app.run(threaded=True)
 

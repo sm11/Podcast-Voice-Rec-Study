@@ -1,4 +1,7 @@
 #!/bin/bash
+#pwd=$PWD
+#parentdir="$(dirname $pwd )"
+echo $parentdir/static
 aws polly synthesize-speech \
 --text-type ssml \
 --text file://$(pwd)/static/testfile.xml \

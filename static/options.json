@@ -3,8 +3,8 @@
         "count": 1,
         "podcasts": [
             {
-                "file-name": "Dirty John.mp3",
-                "title": "Dirty John - L.A. Times | Wondery"
+                "file-name": "Dr. Jill Bolte Taylor: My Stroke of Insight.mp3",
+                "title": "Oprah\u2019s SuperSoul Conversations - Oprah"
             }
         ]
     },
@@ -12,8 +12,8 @@
         "count": 2,
         "podcasts": [
             {
-                "file-name": "Who\u2019s Gerry and Why Is He So Bad at Drawing Maps?\n.mp3",
-                "title": "Radiolab Presents: More Perfect - WNYC Studios"
+                "file-name": "Dan Carlin's Hardcore History.mp3",
+                "title": "Dan Carlin's Hardcore History - Dan Carlin"
             }
         ]
     },
@@ -21,8 +21,8 @@
         "count": 3,
         "podcasts": [
             {
-                "file-name": "Crooked Conversations.mp3",
-                "title": "Crooked Conversations - Crooked Media"
+                "file-name": "Majority 54.mp3",
+                "title": "Majority 54 - Crooked Media"
             }
         ]
     },
@@ -30,13 +30,22 @@
         "count": 4,
         "podcasts": [
             {
-                "file-name": "Deadly Manners.mp3",
-                "title": "Deadly Manners - The Paragon Collective"
+                "file-name": "Dirty John.mp3",
+                "title": "Dirty John - L.A. Times | Wondery"
             }
         ]
     },
     {
         "count": 5,
+        "podcasts": [
+            {
+                "file-name": "#603: Once More, With Feeling.mp3",
+                "title": "This American Life - This American Life"
+            }
+        ]
+    },
+    {
+        "count": 6,
         "podcasts": [
             {
                 "file-name": "Kickass News.mp3",
@@ -45,7 +54,16 @@
         ]
     },
     {
-        "count": 6,
+        "count": 7,
+        "podcasts": [
+            {
+                "file-name": "The Joe Rogan Experience.mp3",
+                "title": "The Joe Rogan Experience - Joe Rogan"
+            }
+        ]
+    },
+    {
+        "count": 8,
         "podcasts": [
             {
                 "file-name": "TED Talks Daily.mp3",
@@ -54,29 +72,11 @@
         ]
     },
     {
-        "count": 7,
-        "podcasts": [
-            {
-                "file-name": "#627: Suitable for Children.mp3",
-                "title": "This American Life - This American Life"
-            }
-        ]
-    },
-    {
-        "count": 8,
-        "podcasts": [
-            {
-                "file-name": "The Daily.mp3",
-                "title": "The Daily - The New York Times"
-            }
-        ]
-    },
-    {
         "count": 9,
         "podcasts": [
             {
-                "file-name": "Lore.mp3",
-                "title": "Lore - Aaron Mahnke"
+                "file-name": "Young Charlie by Hollywood & Crime.mp3",
+                "title": "Young Charlie by Hollywood & Crime - Wondery"
             }
         ]
     },
@@ -84,8 +84,8 @@
         "count": 10,
         "podcasts": [
             {
-                "file-name": "The Joe Rogan Experience.mp3",
-                "title": "The Joe Rogan Experience - Joe Rogan"
+                "file-name": "The Daily.mp3",
+                "title": "The Daily - The New York Times"
             }
         ]
     }
