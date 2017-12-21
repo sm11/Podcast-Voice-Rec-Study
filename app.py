@@ -59,7 +59,7 @@ hitID, assignmentID, workerID  = "","", ""
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_DB'] = 'ParticipantsData'
+app.config['MYSQL_DATABASE_DB'] = 'Podcast_Study'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
@@ -282,27 +282,33 @@ def insert_data():
     #workerID = req_json['workerID']
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO Participants (hitID, assignedCode, assignmentID, workerID) VALUES ('" + str(hitID) + "', '" + str(assignedCode) + "', '" + str(assignmentID) + "', '" + str(workerID) + "')")
+    #cursor.execute("INSERT INTO Participants_Data (hitID, assignedCode, assignmentID, workerID) VALUES ('" + str(hitID) + "', '" + str(assignedCode) + "', '" + str(assignmentID) + "', '" + str(workerID) + "')")
+    cursor.callproc('sp_createParticipant',(workerID, assignmentID, hitID, assignedCode))
     conn.commit()
-
-    print ("ass {} hit {} work {}".format(assignmentID, hitID, workerID))
+    cursor.close()
+    conn.close()
+    #print ("ass {} hit {} work {}".format(assignmentID, hitID, workerID))
     return 'inserted code'
 
 @app.route("/participants", methods=['GET'])
 def get_participants():
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM Participants")
+    cursor.execute("SELECT * FROM Participants_Data")
     data = cursor.fetchall()
+    cursor.close()
+    conn.close()
     #print(data)
     return jsonify(data)
 
 def get_table_columns(table):
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='ParticipantsData' AND `TABLE_NAME`='" + table + "'")
+    cursor.execute("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='Podcast_Study' AND `TABLE_NAME`='" + table + "'")
     data = cursor.fetchall()
     print(data)
+    cursor.close()
+    conn.close()
     return 'got table columns'
     #get_table_columns('Participants')
 
