@@ -14,8 +14,8 @@ from helpers import textToSpeech
 from helpers import rss_parser
 
 
-#rss_parser()
-#textToSpeech()
+rss_parser()
+textToSpeech()
 
 
 #def create_app():
