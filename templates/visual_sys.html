@@ -36,7 +36,7 @@
                 <table  class = "tbl" align="center">
                 {% for i in range(0, podcast_options|length) %}
                 <tr class="vis_tr">
-                    <td class = "serial_cell"> {{i}} </td>
+                    <td class = "serial_cell"> {{i+1}} </td>
                     <td>
                         <div id="podcast-{{ i }}" data-toggle="modal" data-target="#podModal"  data-id= "{{i}}" data-name = "{{ podcast_options[i]['podcasts'][0]["title"] }}" onclick = "getDiv(this)" class="title-cell">{{ podcast_options[i]['podcasts'][0]["title"] }}
                          </div>

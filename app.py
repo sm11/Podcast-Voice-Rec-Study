@@ -10,8 +10,8 @@ import os
 from flaskext.mysql import MySQL
 
 
-#from helpers import textToSpeech
-#from helpers import rss_parser
+from helpers import textToSpeech
+from helpers import rss_parser
 
 
 #rss_parser()
@@ -55,7 +55,7 @@ req_json=""
 hitID, assignmentID, workerID  = "","", ""
 
 
-
+# Configuring database
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
@@ -63,16 +63,6 @@ app.config['MYSQL_DATABASE_DB'] = 'Podcast_Study'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
-
-
-"""
-    Testing endpoints
-"""
-"""
-@app.route('/ping')
-def ping():
-    return "pong"
-"""
 
 @app.route('/logout')
 def logout():
@@ -100,24 +90,20 @@ def dated_url_for(endpoint, **values):
 @app.route('/login', methods=['POST', 'GET'])
 @app.route('/', methods=['POST', 'GET'])
 def show_login():
-    global code
-    global session_ids
-    global hitID
-    global assignmentID
-    global workerID
+    global code, session_ids
+    global hitID, assignmentID, workerID
     
     code = codeGen()
+    print ("c", code)
     if request.method == 'GET':
         req_json = request.args.to_dict()
         hitID = req_json.get('hitId', None)
         workerID = req_json.get('workerId', None)
         assignmentID = req_json.get('assignmentId', None)
-        #print (hitID)
 
 
     if request.method == 'POST':
         req_json = request.form.get('hitId')
-        print ("req2", req_json)
         worker_id = request.form["user-id"]
         if request.form["user-id"] not in session_ids:
             #session_ids.add(worker_id)
@@ -147,7 +133,9 @@ def dispatch():
         print ("Log: Illegal access to dispatcher")
         return redirect(url_for('show_login'))
 
-    # Alternatively dispatch request to voice-based and visual-based system
+    # Alternatively insert data into database as well as
+    # dispatch request to voice-based and visual-based system
+
     insert_data()
     if lastRequestIsVoice:
         lastRequestIsVoice = False
@@ -228,6 +216,7 @@ def show_survey():
 def save_result_and_logout():
     global code
 
+    print ("c2", code)
     if request.referrer != url_for('show_survey', _external = True) \
         or ('user-id' not in session) \
         or ('podcast-id' not in session) \
@@ -247,6 +236,12 @@ def save_result_and_logout():
     session.clear()
     return render_template('thankyou.html', passcode = code)
 
+
+"""
+
+Helper Functions
+
+"""
 
 # helper: collect view history
 @app.route('/_data-collector', methods=['POST'])
@@ -269,26 +264,16 @@ def page_not_found(e):
 
 @app.route("/insert_data", methods=['POST'])
 def insert_data():
-    global code
-    global hitID, workerID, assignmentID 
-    global req_json
-
-    print ("heya!", hitID)
-    #code = request.args.get('assignedCode')
-    #req_json = request.get_json()
+    global code, hitID, workerID, assignmentID 
     
     assignedCode = code
-    #assignmentID = req_json['assignmentID']
-    #workerID = req_json['workerID']
     conn = mysql.connect()
     cursor = conn.cursor()
-    #cursor.execute("INSERT INTO Participants_Data (hitID, assignedCode, assignmentID, workerID) VALUES ('" + str(hitID) + "', '" + str(assignedCode) + "', '" + str(assignmentID) + "', '" + str(workerID) + "')")
     cursor.callproc('sp_createParticipant',(workerID, assignmentID, hitID, assignedCode))
     conn.commit()
     cursor.close()
     conn.close()
-    #print ("ass {} hit {} work {}".format(assignmentID, hitID, workerID))
-    return 'inserted code'
+    return ''
 
 @app.route("/participants", methods=['GET'])
 def get_participants():
@@ -298,7 +283,6 @@ def get_participants():
     data = cursor.fetchall()
     cursor.close()
     conn.close()
-    #print(data)
     return jsonify(data)
 
 def get_table_columns(table):
@@ -309,10 +293,9 @@ def get_table_columns(table):
     print(data)
     cursor.close()
     conn.close()
-    return 'got table columns'
-    #get_table_columns('Participants')
+    return ''
 
-#---helper functions -----#
+
 def codeGen():
     import string
     import random
@@ -323,20 +306,21 @@ def codeGen():
         chars=string.ascii_letters + string.digits
         return ''.join(random.choice(chars) for _ in range(20))
     
-    c = genPwd()
+    pwd = genPwd()
 
-    while c in code_set:
-        c = genPwd()
+    while pwd in code_set:
+        pwd = genPwd()
     
-    code_set.add(c)
-    return c
+    code_set.add(pwd)
+    return pwd
 
 
 if __name__ == "__main__":
 
     # Load podcasts
-    #with open(app._static_folder + "/" + podcast_options_json) as podcasts_fd:
-        #podcast_options = json.load(podcasts_fd)
+    with open(app._static_folder + "/" + podcast_options_json) as podcasts_fd:
+        podcast_options = json.load(podcasts_fd)
+    
     # start server
     app.run(threaded=True)
 
