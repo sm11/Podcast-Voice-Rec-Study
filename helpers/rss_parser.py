@@ -87,7 +87,7 @@ def trim():
 
 
 def rss_parser():
-    link = 'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss'
+    link = 'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/200/non-explicit.rss'
     pod_ids = parseFeed(link)
     result = []
     count = 1
