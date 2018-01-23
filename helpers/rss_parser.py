@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import urllib.request
+from urllib.request import Request, urlopen
 import json
 import re
 import os
@@ -52,7 +53,7 @@ def geturl(url, dst):
         print("There was an error retrieving the data. Check your internet connection and try again.")
         sys.exit(0)
     except KeyboardInterrupt:
-        print("\n\nYou have interrupted an active download.\n Cleaning up fines now.")
+        print("\n\nYou have interrupted an active download.\n Cleaning up files now.")
         os.remove(dst)
         sys.exit(1)
     
@@ -116,7 +117,9 @@ def rss_parser():
         #print (xml_str)
 
         try:
-            xml_str = urllib.request.urlopen(url_str).read()
+            req = Request(url_str, headers={'User-Agent': 'Mozilla/5.0'})
+            xml_str = urlopen(req).read()
+            #xml_str = urllib.request.urlopen(url_str).read()
         except IOError:
             print("There was an error retrieving the data. Check your internet connection and try again.")
         
