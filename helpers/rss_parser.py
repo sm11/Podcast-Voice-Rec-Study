@@ -93,9 +93,11 @@ def rss_parser():
     pod_ids = parseFeed(link)
     result = []
     count = 1
+    c = 0
 
     # grab podcast feed
     for cast in pod_ids:
+        c += 1
         podcastName = cast[0]['title']
         podcastId = cast[0]['id']
 
