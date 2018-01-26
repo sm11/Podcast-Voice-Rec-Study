@@ -15,8 +15,8 @@ import pprint
 
 basepath = os.path.dirname(__file__)
 static_folderpath = os.path.abspath(os.path.join(basepath, "..", "static"))
-audio_hold_folderpath = os.path.abspath(os.path.join(basepath, "..", "static/audio_hold"))
-audio_folderpath = os.path.abspath(os.path.join(basepath, "..", "static/audio"))
+audio_hold_folderpath = os.path.abspath(os.path.join(basepath, "..", "static/audio"))
+audio_folderpath = os.path.abspath(os.path.join(basepath, "..", "static/audio_hold"))
 dirname = os.path.dirname(os.path.realpath(__file__))
 
 if not os.path.exists(audio_hold_folderpath):
@@ -88,7 +88,7 @@ def trim():
 
 
 def rss_parser():
-    link = 'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/200/non-explicit.rss'
+    link = 'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/5/non-explicit.rss'
     pod_ids = parseFeed(link)
     result = []
     count = 1
