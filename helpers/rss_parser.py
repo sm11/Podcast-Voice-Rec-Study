@@ -123,7 +123,12 @@ def rss_parser():
         except IOError:
             print("There was an error retrieving the data. Check your internet connection and try again.")
         
-        xmldoc = minidom.parseString(xml_str)
+        try:
+            xmldoc = minidom.parseString(xml_str)
+        except xml.parsers.expat.ExpatError:
+            print ("Invalid string")
+            print ('{}: {}'.format(c, url_str))
+
 
         values = xmldoc.getElementsByTagName('enclosure')
         titles = xmldoc.getElementsByTagName('title')
