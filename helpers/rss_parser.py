@@ -5,6 +5,7 @@ import json
 import re
 import os
 import sys
+import xml.etree.ElementTree
 from xml.dom import minidom
 from xml.etree import ElementTree as etree
 import feedparser
