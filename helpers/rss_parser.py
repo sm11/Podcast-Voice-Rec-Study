@@ -11,6 +11,7 @@ from xml.etree import ElementTree as etree
 import feedparser
 import json
 import pprint
+import textToSpeech
 
 
 
@@ -87,9 +88,9 @@ def trim():
     subprocess.call([filepath])
 
 
-
-def rss_parser():
-    link = 'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/200/non-explicit.rss'
+def main():
+#def rss_parser():
+    link = 'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/non-explicit.rss'
     pod_ids = parseFeed(link)
     result = []
     count = 1
@@ -173,12 +174,13 @@ def rss_parser():
 
     trim()
 
-"""
+
 if __name__ == '__main__':
     try:
         main()
+        textToSpeech.textToSpeech()
     except KeyboardInterrupt:
         print('\n')
         sys.exit(0)
 
-"""
+

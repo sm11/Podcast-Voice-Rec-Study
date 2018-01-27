@@ -10,15 +10,13 @@ import os
 from flaskext.mysql import MySQL
 
 
-from helpers import textToSpeech
-from helpers import rss_parser
+#from helpers import textToSpeech
+#from helpers import rss_parser
 
 
-rss_parser()
-textToSpeech()
+#rss_parser()
+#textToSpeech()
 
-
-#def create_app():
 app = Flask(__name__, static_url_path='')
 Bootstrap(app)
 
